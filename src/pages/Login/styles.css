@@ -1,0 +1,56 @@
+.login-container {
+  height: 100vh;
+}
+
+.logo_home {
+  width: 18.438rem;
+  height: 4.5rem;
+  object-fit: contain;
+}
+
+.login-header h3 {
+  width: 10.75rem;
+  height: 3.75rem;
+  margin: 4.063rem 5.75rem 1.563rem 8.188rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.login-header p {
+  width: 21.938rem;
+  height: 3.125rem;
+  margin: 1.563rem 0.25rem 2.875rem 2.5rem;
+  font-size: 1.063rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.48;
+  letter-spacing: 0.2px;
+  text-align: center;
+}
+
+.login-container .form .button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.login-container .form .button-container button {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  max-width: 21.75rem;
+  height: 3.563rem;
+  margin: 2.563rem auto;
+  padding: 1.125rem 8.375rem 1rem 8.438rem;
+  border: none;
+  color: #fff;
+  font-size: 1.208rem;
+  border-radius: 3.9px;
+  background-color: var(--green);
+  cursor: pointer;
+}
+
+.disabled {
+  background: #748383 !important;
+  cursor: not-allowed !important;
+}
