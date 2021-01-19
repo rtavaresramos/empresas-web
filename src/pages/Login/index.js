@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 // Components
 
@@ -9,6 +11,7 @@ import Logo from "../../components/Logo";
 import "./styles.css";
 
 export default function Login() {
+  let history = useHistory();
   // Input type icon controll
   const [finalIcon, setFinalIcon] = useState("show");
   const [type, setType] = useState("password");
@@ -24,9 +27,17 @@ export default function Login() {
   }
 
   function handleForm() {
-    console.log("Clicado");
-    console.log("Email", email);
-    console.log("Senha", password);
+    axios
+      .post(`https://empresas.ioasys.com.br/api/v1//users/auth/sign_in`, {
+        email,
+        password,
+      })
+      .then((response) => {
+        window.accessToken = response.headers["access-token"];
+        window.client = response.headers.client;
+        window.uid = response.headers.uid;
+      })
+      .finally((ok) => history.push("/home"));
   }
 
   function checkInputEmailEntry(evt) {
