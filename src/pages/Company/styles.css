@@ -1,0 +1,53 @@
+.nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 100%;
+  min-height: 9.438rem;
+  background-image: linear-gradient(
+    to bottom,
+    var(--pink) 60%,
+    var(--blue) 140%
+  );
+  padding: 0 20px;
+  margin-bottom: 20px;
+}
+
+.nav h2 {
+  height: 2.5rem;
+  font-family: Roboto;
+  font-size: 2rem;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: white;
+  margin-left: 20px;
+  text-transform: uppercase;
+}
+
+.company-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  min-width: 300px;
+  padding: 3rem 20px 12.213rem;
+  border-radius: 4.8px;
+  background-color: white;
+  margin: 0 auto 20px;
+}
+
+.company-card p {
+  margin: 3rem 0.438rem 0 0.563rem;
+  font-size: 1.125rem;
+  font-weight: normal;
+  color: #8d8c8c;
+}
+
+.company-card img {
+  width: 100%;
+  min-width: 200px;
+}

@@ -1,5 +1,11 @@
 .login-container {
   height: 100vh;
+  padding: 20px;
+}
+
+.login-container img {
+  width: 100%;
+  margin: 0 40px;
 }
 
 .logo_home {
