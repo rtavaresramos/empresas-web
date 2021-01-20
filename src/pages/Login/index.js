@@ -91,7 +91,6 @@ export default function Login() {
           <div className="input-group">
             <Input
               initialIcon="email"
-              type="email"
               placeholder="Email"
               borderColor={error ? "var(--danger)" : "#383743"}
               inputEntry={checkInputEmailEntry}
