@@ -17,7 +17,7 @@ export default function Company() {
 
   useEffect(() => {
     getData();
-  }, []);
+  });
 
   async function getData() {
     await axios
