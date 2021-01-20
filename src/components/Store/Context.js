@@ -7,6 +7,8 @@ const StoreContext = createContext({
   setClient: () => {},
   uid: null,
   setUid: () => {},
+  textSearch: null,
+  setTextSearch: ()=>{}
 });
 
 export default StoreContext;

@@ -6,6 +6,7 @@ const StoreProvider = ({ children }) => {
   const [accessToken, setAccessToken] = useStorage("accessTok");
   const [client, setClient] = useStorage("client");
   const [uid, setUid] = useStorage("uid");
+  const [textSearch, setTextSearch] = useStorage("textSearch");
 
   return (
     <Context.Provider
@@ -16,6 +17,8 @@ const StoreProvider = ({ children }) => {
         setClient,
         uid,
         setUid,
+        textSearch,
+        setTextSearch
       }}
     >
       {children}

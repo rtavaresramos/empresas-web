@@ -17,7 +17,8 @@ export default function Company() {
 
   useEffect(() => {
     getData();
-  });
+    // eslint-disable-next-line
+  }, [companyId]);
 
   async function getData() {
     await axios

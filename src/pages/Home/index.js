@@ -1,4 +1,5 @@
-import React, { useState, useContext } from "react";
+import React , { useState, useContext, useEffect } from "react";
+import {Link} from 'react-router-dom'
 import StoreContext from "../../components/Store/Context";
 import axios from "axios";
 
@@ -8,12 +9,18 @@ import NavWithInput from "../../components/NavWithInput";
 import EnterpriseCard from "../../components/EnterpriseCard";
 
 export default function Home() {
-  const { accessToken, client, uid } = useContext(StoreContext);
+  const { accessToken, client, uid, textSearch } = useContext(StoreContext);
   const [content, setContent] = useState(
     <div className="content-container">
       <h3>Clique na busca para iniciar.</h3>
     </div>
-  );
+  )
+  useEffect(()=>{
+    if(textSearch){
+      searchCompany(textSearch)
+    }
+    // eslint-disable-next-line
+  }, [textSearch]);
 
   async function searchCompany(evt) {
     await axios
@@ -47,20 +54,32 @@ export default function Home() {
         }
       })
       .catch((err) => {
-        if (err.length) {
+        if (err) {
           setContent(
             <div className="content-container">
-              <h3 className="danger-text">
-                Sessão expirada, refaça o login e tente novamente.
-              </h3>
+              <Link to="/login" className="danger-text h2">
+                Sessão expirada, Clique aqui refaça o login e tente novamente.
+              </Link>
             </div>
           );
         }
       });
   }
+
+  function checkResult(){
+    setContent(
+    <div className="content-container">
+      <h3>Clique na busca para iniciar.</h3>
+    </div>
+    )
+  }
   return (
     <div className="home-container flex-col">
-      <NavWithInput searchCompanyByName={searchCompany} />
+      <NavWithInput searchCompanyByName={textSearch !== null ? searchCompany : checkResult} 
+      isOpen={textSearch ? true : false} 
+      searchValue={textSearch} 
+      cleanSearch={checkResult}
+      />
       <div className="d-flex flex-center">{content}</div>
     </div>
   );

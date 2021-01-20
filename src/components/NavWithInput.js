@@ -1,17 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import StoreContext from "./Store/Context";
 
 import Logo from "./LogoNav";
 import Input from "./Input";
 
 export default function Nav(props) {
+  const { textSearch, setTextSearch } = useContext(StoreContext);
   const [inputWidth, setInputWidth] = useState(0);
+
 
   function changeInputWidth() {
     inputWidth === 0 ? setInputWidth("100%") : setInputWidth(0);
   }
 
+  function clearInput(){
+    setTextSearch(null)
+   changeInputWidth()
+    props.cleanSearch()
+  }
+
+  useEffect(()=>{
+    if(props.isOpen=== true){
+     setInputWidth("100%")
+    }
+  }, [props.isOpen])
+  
   function searchCompany(evt) {
-    props.searchCompanyByName(evt);
+    setTextSearch(evt)
+     props.searchCompanyByName(evt);
   }
   return (
     <div className="nav-with-input">
@@ -32,10 +48,11 @@ export default function Nav(props) {
           initialIcon="search"
           borderColor={inputWidth === 0 ? "transparent" : "white"}
           initialIconClicked={changeInputWidth}
-          finalIconClicked={changeInputWidth}
+          finalIconClicked={clearInput}
           placeholder="Pesquisar"
           finalIcon={inputWidth === 0 ? "" : "close"}
-          enterPressed={searchCompany}
+          inputEntry={searchCompany}
+          inputValue={textSearch ? props.searchValue : false}
         />
       </div>
     </div>

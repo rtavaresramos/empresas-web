@@ -77,14 +77,9 @@ export default function Input(props) {
 
   function changeInput(evt) {
     setInput(evt.target.value);
-    if (!props.inputHome) props.inputEntry(evt);
+    props.inputEntry(evt.target.value);
   }
 
-  function enterPressed(evt) {
-    if (evt.keyCode === 13) {
-      props.enterPressed(input);
-    }
-  }
 
   return (
     <div className="d-flex flex-col">
@@ -94,13 +89,13 @@ export default function Input(props) {
         </span>
         <input
           className={props.inputHome ? "input-home" : ""}
-          value={input}
+          value={props.inputValue ? props.inputValue : input}
           style={{ width: props.width, marginRight: 8 }}
           type={props.type}
           placeholder={props.placeholder}
           onChange={changeInput}
-          onKeyUp={enterPressed}
         />
+
         <span
           className={
             props.finalIcon === "show" || props.finalIcon === "hide"

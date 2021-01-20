@@ -60,11 +60,11 @@ export default function Login() {
   }
 
   function checkInputEmailEntry(evt) {
-    setEmail(evt.target.value);
+    setEmail(evt);
   }
 
   function checkInputPasswordEntry(evt) {
-    setPassword(evt.target.value);
+    setPassword(evt);
   }
 
   function showLoading() {
@@ -84,8 +84,8 @@ export default function Login() {
           <div className="login-header">
             <h3>Bem vindo ao Empresas</h3>
             <p>
-              Lorem ipsum dolor sit amet, contetur adipiscing elit. Nunc
-              accumsan.
+              A ioasys é referência nacional em inovação, transformação digital
+              e desenvolvimento.
             </p>
           </div>
           <div className="input-group">
