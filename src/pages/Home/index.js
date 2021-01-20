@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import { useHistory } from "react-router-dom";
 import StoreContext from "../../components/Store/Context";
 import axios from "axios";
 
